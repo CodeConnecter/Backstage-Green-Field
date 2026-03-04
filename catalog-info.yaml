@@ -1,0 +1,24 @@
+apiVersion: backstage.io/v1alpha1
+kind: Location
+metadata:
+  name: platform-catalog-root
+  description: "Unisys Platform Catalog — root location that discovers all entities"
+spec:
+  # This Location entity points to all sub-locations in this repository.
+  # Backstage crawls each target and registers every entity it finds.
+  targets:
+    # ── Organisation: Groups & Users ─────────────────────────────────────
+    - ./org.yaml
+
+    # ── Business Domains ─────────────────────────────────────────────────
+    - ./domains/domains.yaml
+
+    # ── Systems ──────────────────────────────────────────────────────────
+    - ./systems/systems.yaml
+
+    # ── Scaffolder Templates ──────────────────────────────────────────────
+    - ./templates/spring-boot-java/template.yaml
+    # Add new template paths here as stacks are added:
+    # - ./templates/react-frontend/template.yaml
+    # - ./templates/dotnet-api/template.yaml
+    # - ./templates/python-fastapi/template.yaml
